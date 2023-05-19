@@ -119,3 +119,64 @@ names.forEach((eachName) => {
 
 
 // OBJECT TYPES
+// This refers to Javascript values with properties. 
+// properties are accessible by using dot
+function printCoord(points: {x: number, y: number}): string {
+    return `You are located at coordinate x:${points.x} and y: ${points.y}`   
+}
+
+console.log(printCoord({x: 456, y: 789}));
+
+// optional properties
+function FooBar(obj: {foo: string, bar?: string}): string {
+    return `There are ${obj.foo} and there are ${obj.bar}`
+}
+
+console.log( FooBar({foo:"food", bar:"fun"}));
+
+// UNION TYPES
+// This is a type that is formed from 2 or more types
+
+// This says that id can be either a number or a string
+function printId(id: number | string) {
+    console.log("Your ID is:" + id);
+}
+
+printId(1010)
+printId("a4tgjlwka4o")
+
+// NOTE - typescript will only allow an operation if it is valud for EVERY member of the union. 
+// For example, if we have a union of string | number, we CANNOt use methods that exclusive to one or the other.
+
+function printIdTwo(id: number | string) {
+    // In this example this will not work because toUpperCase
+    // is specific to only strings as it does not exist on type number
+    console.log(id.toUpperCase());
+}
+//SOLUTION to this -> narrowing!
+// Defined: Narrowing occurs when TypeScript can deduce a more
+// specific type for a value based on the structure of the code.
+function printIdThree(id: number | string) {
+    if (typeof id === "string") {
+        console.log(id.toUpperCase());
+    } else {
+        console.log(id);
+    }
+}
+
+// Another example
+// Use a function like Array.isArray
+function helloEveryone(people: string[] | string) {
+    // If parameter people is a string array
+    if (Array.isArray(people)) {
+        console.log("Hello, " + people.join(" and "));   
+    }
+    //  If parameter people is a single name
+    else {
+        console.log("Hello, " + people);
+    }
+}
+
+// LEFT OFF HERE!! FIX THIS. WE ARE AT WORKING WITH UNION TYPES ON EVERYDAY TYPES IN HANDBOOK.
+helloEveryone(people"david", "steven", "harry")
+
