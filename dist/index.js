@@ -47,4 +47,38 @@ function printId(id) {
 }
 printId(1010);
 printId("a4tgjlwka4o");
+function printIdTwo(id) {
+}
+function printIdThree(id) {
+    if (typeof id === "string") {
+        console.log(id.toUpperCase());
+    }
+    else {
+        console.log(id);
+    }
+}
+function helloEveryone(people) {
+    if (Array.isArray(people)) {
+        console.log("Hello, " + people.join(" and "));
+    }
+    else {
+        console.log("Hello individual, " + people);
+    }
+}
+helloEveryone(["david", "steven", "harry"]);
+helloEveryone("OnlyOne");
+function getFirstThree(x) {
+    return x.slice(0, 3);
+}
+console.log(getFirstThree([1, 2, 3, 4, 5]));
+console.log(getFirstThree("firstThree"));
+function printCoordTwo(thisPoint) {
+    console.log("The value of x is: " + thisPoint.x);
+    console.log("The value of y is: " + thisPoint.y);
+}
+printCoordTwo({ x: 24, y: 25 });
+function printCustomerInfo(customerInfo) {
+    return `${customerInfo.name} has an ID of ${customerInfo.idNum}`;
+}
+console.log(printCustomerInfo({ name: "SirKnight", idNum: 985468735468 }));
 //# sourceMappingURL=index.js.map
