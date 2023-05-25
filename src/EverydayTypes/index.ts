@@ -338,8 +338,3 @@ console.log(printText("hello world", "right"));
 
 // Just like other type assertions, this doesn’t change the runtime behavior of your code,
 // so it’s important to only use ! when you know that the value can’t be null or undefined.
-
-
-
-
-// NARROWING IN THE TYPESCRIPT HANDBOOK
