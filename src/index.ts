@@ -303,3 +303,43 @@ console.log(printText("hello world", "right"));
 // is not assignable to parameter of type '"left" | "right" | "center"'.
 
 
+
+
+// LITERAL INFERENCES
+// If I create a variable where I think it should be inferenced as a literal
+// TS will find it as an error.
+// To get around this I need to add -> as const;
+
+// const thisRequest = {url: "https://someRandonAPI.com", method: "GET"} as const;
+// handleRequest(thisRequest.url, thisRequest.method)
+
+
+
+
+
+// NULL and UNDEFINED
+// Javascript has 2 primitive values used to signal absent or uninitialized values: null and undefined.
+
+// Typescript has 2 corresponding types by the same name. How they behave depends if strictNullChecks option is on or off in tsconfig.json file.
+// It is RECOMMENDED to have this option turned on.
+// With strictNullChecks on, when a value is null or undefined, you will need to test for those values before using methods or properties on that value
+
+
+
+// NON-NULL ASSERTION OPERATION (POSTFIX !)
+
+// TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking.
+// Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+    
+    function liveDangerously(x?: number | null) {
+      // No error
+      console.log(x!.toFixed());
+    }
+
+// Just like other type assertions, this doesn’t change the runtime behavior of your code,
+// so it’s important to only use ! when you know that the value can’t be null or undefined.
+
+
+
+
+// NARROWING IN THE TYPESCRIPT HANDBOOK
